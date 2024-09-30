@@ -1,6 +1,16 @@
 package pastelaria.pastelaria.model;
 
 import java.util.Date;
+import java.util.List;
+
+import org.jakarta.persistence.Column;
+import org.jakarta.persistence.Entity;
+import org.jakarta.persistence.GeneratedValue;
+import org.jakarta.persistence.GenerationType;
+
+import org.jakarta.persistence.Id;
+import org.jakarta.persistence.ManyToMany;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 public class Ingrediente {
     private long id;
@@ -8,6 +18,36 @@ public class Ingrediente {
     private Date dataValidade;
     private String marca;
     private String observacao;
+    @Entity
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idIngrediente")
+    private long id;
+
+    @Column(nullable = false)
+    private String nome;
+
+    @Column(nullable = false)
+    private String marca;
+
+    @Column(nullable = false)
+    private Date dataValidade;
+
+    @Column(columnDefinition = "TEXT")
+    private String observacao;
+
+    @ManyToMany(mappedBy = "ingredientes")
+    @JsonBackReference
+    private List<Pastel> pastels;
+
+    public List<Pastel> getPastels() {
+        return pastels;
+    }
+
+    public void setPastels(List<Pastel> pastels) {
+        this.pastels = pastels;
+    }
 
     public Ingrediente(String nome, Date dataValidade,String marca, String observacao){
         

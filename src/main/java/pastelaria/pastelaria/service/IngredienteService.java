@@ -3,10 +3,10 @@ package pastelaria.pastelaria.service;
 import com.google.web.bindery.requestfactory.shared.Service;
 
 import pastelaria.pastelaria.model.Ingrediente;
-import pastelaria.pastelaria.repository.IngredienteRepository;
-
-import org.pastelaria.pastelaria.model.excetion.ResourceBadRequestException;
-import org.pastelaria.pastelaria.model.excetion.ResourceNotFoundException;
+import pastelaria.pastelaria.repository.IngredienteRepository_old;
+import pastelaria.pastelaria.model.excetion.ResourceBadRequestException;
+import pastelaria.pastelaria.model.excetion.ResourceNotFoundException;
+import springframework.stereotype.Service;
 
 
 import java.util.InputMismatchException;
@@ -18,11 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class IngredienteService {
-     @Autowired //To pedindo o controle dessa classe para eu utilizar.
-    private IngredienteRepository ingredienteRepository;
+     @Autowired
+    private IngredienteRepository_old ingredienteRepository;
 
     public Ingrediente adicionar(Ingrediente ingrediente){
-        // Aqui eu poderia validar se todos os dados obrigatorios do ingrediente estão corretos. ResourceBadRequestException O nome do ingrediente é obrigatorio
 
         if(ingrediente.getNome().equals("")){
             throw new ResourceBadRequestException("O nome do ingrediente é");

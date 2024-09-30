@@ -3,17 +3,65 @@ import java.util.List;
 import java.util.ArrayList;
 
 import pastelaria.pastelaria.model.Enum.EtipoPastel;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
+@Entity
 
 public class Pastel {
-    private Long id;
-    private String nome;
-    private List<ModeloPastel> modelos;
-    private List<Ingrediente> ingredientes;
-    private EtipoPastel tipo;
-    private boolean ativa;
-    private String observacao;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPastel")
+    private long id;
+
+    @Column(nullable = false, unique = true)
+    private String nome; 
+
+    @ManyToMany
+    @JoinTable(
+        name = "pastel_modelo",
+        joinColumns = @JoinColumn(name = "idPastel"),
+        inverseJoinColumns = @JoinColumn(name = "idModeloPastel")
+    )
+    private List<ModeloPastel> modelos; 
     
+    @ManyToMany
+    @JoinTable(
+        name = "pastel_ingredientes",
+        joinColumns = @JoinColumn(name = "idPastel"),
+        inverseJoinColumns = @JoinColumn(name = "idIngrediente")
+    )
+    private List<Ingrediente> ingredientes;
+
+    @Column(nullable = false)
+    private ETipoPastel tipo;
+
+    @Column(nullable = false)
+    private boolean ativa;
+
+    @Column(columnDefinition = "TEXT")
+    private String observacao;
+
+    @ManyToOne
+    @JoinColumn(name = "idCupomDesconto")
+    private CupomDesconto cupomDesconto;
+
+    public CupomDesconto getCupomDesconto() {
+        return cupomDesconto;
+    }
+
+    public void setCupomDesconto(CupomDesconto cupomDesconto) {
+        this.cupomDesconto = cupomDesconto;
+    }
+
     public Pastel(String nome, EtipoPastel tipo, boolean ativa, String observacao) {
         this.nome = nome;
         this.tipo = tipo;

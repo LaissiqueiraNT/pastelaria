@@ -15,42 +15,42 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
-import pastelaria.pastelaria.model.Ingrediente;
-import pastelaria.pastelaria.service.IngredienteService;
+
+import pastelaria.pastelaria.model.ModeloPastel; 
+import pastelaria.pastelaria.service.ModeloPastelService; 
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/ingredientes")
-public class IngredienteController {
+@RequestMapping("/api/modelo-pastel")
+public class ModeloPastelController {
     
     @Autowired
-    private IngredienteService ingredienteService;
+    private ModeloPastelService modeloPastelService;
 
     @GetMapping   
-    public ResponseEntity<List<Ingrediente>> obterTodos(){
-        return ResponseEntity.ok(ingredienteService.obterTodos());
+    public ResponseEntity<List<ModeloPastel>> obterTodos(){
+        return ResponseEntity.ok(modeloPastelService.obterTodos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Ingrediente>> obterPorId(@PathVariable long id){
-        return ResponseEntity.ok(ingredienteService.obterPorId(id));
+    public ResponseEntity<Optional<ModeloPastel>> obterPorId(@PathVariable long id){
+        return ResponseEntity.ok(modeloPastelService.obterPorId(id));
     }
 
     @PostMapping    
-    public ResponseEntity<Ingrediente> adicionar(@RequestBody Ingrediente ingrediente){
-        var ingredienteCriado = ingredienteService.adicionar(ingrediente);
-        return new ResponseEntity<>(ingredienteCriado, HttpStatus.CREATED);
+    public ResponseEntity<ModeloPastel> adicionar(@RequestBody ModeloPastel modeloPastel){
+        ModeloPastel modeloPastelCriado = modeloPastelService.adicionar(modeloPastel);
+        return new ResponseEntity<>(modeloPastelCriado, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Ingrediente> atualizar(@PathVariable long id, @RequestBody Ingrediente ingrediente){
-        return ResponseEntity.ok(ingredienteService.atualizar(id, ingrediente));
+    public ResponseEntity<ModeloPastel> atualizar(@PathVariable long id, @RequestBody ModeloPastel modeloPastel){
+        return ResponseEntity.ok(modeloPastelService.atualizar(id, modeloPastel));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletar(@PathVariable long id){
-        ingredienteService.deletar(id);
+        modeloPastelService.deletar(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }
