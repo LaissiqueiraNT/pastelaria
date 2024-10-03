@@ -2,23 +2,17 @@ package pastelaria.pastelaria.model;
 
 import java.util.Date;
 import java.util.List;
-
-import org.jakarta.persistence.Column;
-import org.jakarta.persistence.Entity;
-import org.jakarta.persistence.GeneratedValue;
-import org.jakarta.persistence.GenerationType;
-
-import org.jakarta.persistence.Id;
-import org.jakarta.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+
+@Entity
 public class Ingrediente {
-    private long id;
-    private String nome;
-    private Date dataValidade;
-    private String marca;
-    private String observacao;
-    @Entity
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,16 +50,13 @@ public class Ingrediente {
         this.marca = marca;
         this.observacao = observacao;
     }
-    
-
     public Ingrediente() {
     }
 
-
-    public Long getId() {
+    public long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

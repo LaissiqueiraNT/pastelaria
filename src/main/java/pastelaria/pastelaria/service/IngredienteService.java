@@ -1,25 +1,19 @@
 package pastelaria.pastelaria.service;
 
-import com.google.web.bindery.requestfactory.shared.Service;
-
 import pastelaria.pastelaria.model.Ingrediente;
-import pastelaria.pastelaria.repository.IngredienteRepository_old;
 import pastelaria.pastelaria.model.excetion.ResourceBadRequestException;
 import pastelaria.pastelaria.model.excetion.ResourceNotFoundException;
-import springframework.stereotype.Service;
+import pastelaria.pastelaria.repository.IngredienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 
 @Service
 public class IngredienteService {
      @Autowired
-    private IngredienteRepository_old ingredienteRepository;
+    private IngredienteRepository ingredienteRepository;
 
     public Ingrediente adicionar(Ingrediente ingrediente){
 

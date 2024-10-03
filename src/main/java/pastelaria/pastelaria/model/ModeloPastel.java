@@ -1,5 +1,4 @@
 package pastelaria.pastelaria.model;
-import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -16,7 +15,7 @@ public class ModeloPastel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @column(name = "idIngrediente")
+    @Column(name = "idIngrediente")
     private long id;
 
     @Column(nullable = false, unique = true)
@@ -39,17 +38,15 @@ public class ModeloPastel {
     public void setPastels(List<Pastel> pastels) {
         this.pastels = pastels;
     }
-
-
     public ModeloPastel(String tamanho, String sabor, double valor) {
         this.tamanho = tamanho;
         this.sabor = sabor;
         this.valor = valor;
     }
-    public Long getId() {
+    public long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

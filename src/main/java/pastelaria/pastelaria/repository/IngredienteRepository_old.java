@@ -1,6 +1,4 @@
 package pastelaria.pastelaria.repository;
-
-
 import pastelaria.pastelaria.model.Ingrediente;
 import org.springframework.stereotype.Repository;
 
@@ -10,11 +8,11 @@ import java.util.ArrayList;
 @Repository
 public class IngredienteRepository_old {
     private List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
-    private int ultimoId = 0;
+    private long ultimoId = 0;
 
     public Ingrediente adicionar(Ingrediente ingrediente) {
         ultimoId++;
-        ingrediente.setId((long)ultimoId);
+        ingrediente.setId(ultimoId);
         ingredientes.add(ingrediente);
 
         return ingrediente;
@@ -24,8 +22,7 @@ public class IngredienteRepository_old {
         return ingredientes;
     }
 
-    public Ingrediente obterPorId(Long id) {
-        // ingrediente.forEach(ingredientes);
+    public Ingrediente obterPorId(long id) {
         for (Ingrediente ingrediente : ingredientes) {
             if (ingrediente.getId() == id) {
                 return ingrediente;

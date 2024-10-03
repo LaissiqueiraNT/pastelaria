@@ -1,14 +1,14 @@
 package pastelaria.pastelaria.service;
 
+import org.springframework.stereotype.Service;
 import pastelaria.pastelaria.model.Pastel;
 import pastelaria.pastelaria.model.excetion.ResourceBadRequestException;
 import pastelaria.pastelaria.model.excetion.ResourceNotFoundException;
 import pastelaria.pastelaria.repository.PastelRepository;
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+import java.util.Optional;
 @Service
 public class PastelService {
 
@@ -56,4 +56,5 @@ public class PastelService {
     public void deletar(long id){
         obterPorId(id);
         pastelRepository.deleteById(id);
+}
 }

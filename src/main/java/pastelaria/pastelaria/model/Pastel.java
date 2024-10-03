@@ -14,9 +14,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-
 public class Pastel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPastel")
@@ -42,7 +40,7 @@ public class Pastel {
     private List<Ingrediente> ingredientes;
 
     @Column(nullable = false)
-    private ETipoPastel tipo;
+    private EtipoPastel tipo;
 
     @Column(nullable = false)
     private boolean ativa;
@@ -67,12 +65,10 @@ public class Pastel {
         this.tipo = tipo;
         this.ativa = ativa;
         this.observacao = observacao;
-
         this.modelos = new ArrayList<ModeloPastel>();
         this.ingredientes = new ArrayList<Ingrediente>();
     }
-    public Pastel(String nome, List<ModeloPastel> modelos, List<Ingrediente> ingredientes, EtipoPastel tipo,
-            boolean ativa, String observacao) {
+    public Pastel(String nome, List<ModeloPastel> modelos, List<Ingrediente> ingredientes, EtipoPastel tipo,boolean ativa, String observacao) {
         this.nome = nome;
         this.modelos = modelos;
         this.ingredientes = ingredientes;
@@ -82,10 +78,10 @@ public class Pastel {
     }
     public Pastel() {
     }
-    public Long getId() {
+    public long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
     public String getNome() {
