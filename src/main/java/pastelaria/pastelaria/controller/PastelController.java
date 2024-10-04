@@ -21,7 +21,7 @@ import pastelaria.pastelaria.service.PastelService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/pastels")
+@RequestMapping("/api/pasteis")
 public class PastelController {
     
     @Autowired

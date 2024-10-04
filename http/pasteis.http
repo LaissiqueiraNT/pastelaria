@@ -1,11 +1,11 @@
-GET http://localhost:8081/api/pizzas
+GET http://localhost:8081/api/pasteis
 
 ###
-GET http://localhost:8081/api/pizzas/99
+GET http://localhost:8081/api/pasteis/99
 
 ###
 
-POST http://localhost:8081/api/pizzas
+POST http://localhost:8081/api/pasteis
 Content-Type: application/json
 
 {
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8081/api/pizzas/2
+PUT http://localhost:8081/api/pasteis/2
 Content-Type: application/json
 
 {
@@ -41,5 +41,5 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8081/api/pizzas/4
+DELETE http://localhost:8081/api/pasteis/4
 

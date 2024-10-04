@@ -1,7 +1,7 @@
-GET http://localhost:8081/api/modelo-pizzas
+GET http://localhost:8081/api/modelo-pasteis
 
-GET http://localhost:8081/api/modelo-pizzas/1
-POST http://localhost:8081/api/modelo-pizzas
+GET http://localhost:8081/api/modelo-pasteis/1
+POST http://localhost:8081/api/modelo-pasteis
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
     "valor": 50.0
 }
 
-PUT http://localhost:8081/api/modelo-pizzas/4
+PUT http://localhost:8081/api/modelo-pasteis/4
 Content-Type: application/json
 
 {
@@ -17,4 +17,4 @@ Content-Type: application/json
     "valor": 50.0
 }
 
-DELETE http://localhost:8081/api/modelo-pizzas/4
+DELETE http://localhost:8081/api/modelo-pasteis/4

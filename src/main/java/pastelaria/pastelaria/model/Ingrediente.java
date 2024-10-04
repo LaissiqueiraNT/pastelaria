@@ -33,14 +33,14 @@ public class Ingrediente {
 
     @ManyToMany(mappedBy = "ingredientes")
     @JsonBackReference
-    private List<Pastel> pastels;
+    private List<Pastel> pasteis;
 
-    public List<Pastel> getPastels() {
-        return pastels;
+    public List<Pastel> getPasteis() {
+        return pasteis;
     }
 
-    public void setPastels(List<Pastel> pastels) {
-        this.pastels = pastels;
+    public void setPasteis(List<Pastel> pasteis) {
+        this.pasteis = pasteis;
     }
 
     public Ingrediente(String nome, Date dataValidade,String marca, String observacao){

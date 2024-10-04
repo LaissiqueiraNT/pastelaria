@@ -22,13 +22,13 @@ public class CupomDesconto {
     private double valor;
 
     @OneToMany(mappedBy = "cupomDesconto")
-    private List<Pastel> pastels;
+    private List<Pastel> pasteis;
 
-    public List<Pastel> getPastels() {
-        return pastels;
+    public List<Pastel> getPasteis() {
+        return pasteis;
     }
-    public void setPastels(List<Pastel> pastels) {
-        this.pastels = pastels;
+    public void setPasteis(List<Pastel> pasteis) {
+        this.pasteis = pasteis;
     }
     public Long getId() {
         return id;

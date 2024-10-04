@@ -24,23 +24,19 @@ public class ModeloPastel {
     @Column(nullable = false)
     private double valor;
 
-    @Column(nullable = false, unique = true)
-    private String sabor; 
-
     @ManyToMany(mappedBy = "modelos")
     @JsonBackReference
-    private List<Pastel> pastels;
+    private List<Pastel> pasteis;
 
-    public List<Pastel> getPastels() {
-        return pastels;
+    public List<Pastel> getPasteis() {
+        return pasteis;
     }
 
-    public void setPastels(List<Pastel> pastels) {
-        this.pastels = pastels;
+    public void setPasteis(List<Pastel> pasteis) {
+        this.pasteis = pasteis;
     }
-    public ModeloPastel(String tamanho, String sabor, double valor) {
+    public ModeloPastel(String tamanho, double valor) {
         this.tamanho = tamanho;
-        this.sabor = sabor;
         this.valor = valor;
     }
     public long getId() {
@@ -55,13 +51,6 @@ public class ModeloPastel {
     }
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
-    }
-
-    public String getSabor() {
-        return sabor;
-    }
-    public void setSabor(String sabor) {
-        this.sabor = sabor;
     }
 
     public double getValor() {
